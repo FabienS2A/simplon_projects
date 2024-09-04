@@ -60,6 +60,12 @@ if response.status_code == 200:
         aff = list(set([aff_block.get_text(strip=True) for aff_block in aff_blocks]))
         for affi in aff_blocks:
             print(affi.text[2:])
+        conflict_block = soup.find('div', {'class': 'statement'})
+    if conflict_block:
+        p_conflict = conflict_block.find('p').get_text(strip=True)
+        print(p_conflict)
+    else:
+        print("Aucun élément 'conflict' trouvé")
 
 
 else:
